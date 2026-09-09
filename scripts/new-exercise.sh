@@ -11,9 +11,9 @@ fi
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 exercises_dir="${root}/exercises"
 
-last_num=$(find "$exercises_dir" -maxdepth 1 -mindepth 1 -type d -printf '%f\n' 2>/dev/null \
-  | grep -oE '^[0-9]+' | sort -n | tail -1)
-next_num=$(printf '%02d' "$(( ${last_num:-0} + 1 ))")
+last_num=$(find "$exercises_dir" -maxdepth 1 -mindepth 1 -type d -printf '%f\n' 2>/dev/null |
+  grep -oE '^[0-9]+' | sort -n | tail -1)
+next_num=$(printf '%02d' "$((${last_num:-0} + 1))")
 
 slug="$1"
 target="${exercises_dir}/${next_num}-${slug}"
@@ -25,7 +25,7 @@ fi
 
 mkdir -p "$target"
 
-cat > "${target}/README.md" <<EOF
+cat >"${target}/README.md" <<EOF
 # Exercise ${next_num}: ${slug//-/ }
 
 Describe the exercise here: what the script takes as input, what it must print, and
@@ -38,14 +38,14 @@ any edge cases it needs to handle.
 \`\`\`
 EOF
 
-cat > "${target}/solution.sh" <<'EOF'
+cat >"${target}/solution.sh" <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 
 echo "TODO: implement me"
 EOF
 
-cat > "${target}/test.sh" <<'EOF'
+cat >"${target}/test.sh" <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
