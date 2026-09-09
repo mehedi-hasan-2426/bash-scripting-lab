@@ -9,7 +9,7 @@ if [[ ! -s "$quotes_file" ]]; then
   exit 1
 fi
 
-mapfile -t quotes < "$quotes_file"
+mapfile -t quotes <"$quotes_file"
 count=${#quotes[@]}
 
 if [[ "${1:-}" == "--seed" ]]; then
@@ -17,5 +17,5 @@ if [[ "${1:-}" == "--seed" ]]; then
   RANDOM="$seed"
 fi
 
-index=$(( RANDOM % count ))
+index=$((RANDOM % count))
 echo "${quotes[$index]}"

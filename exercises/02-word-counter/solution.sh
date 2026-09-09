@@ -13,9 +13,9 @@ if [[ ! -f "$file" ]]; then
   exit 1
 fi
 
-lines=$(wc -l < "$file" | tr -d ' ')
-words=$(wc -w < "$file" | tr -d ' ')
-chars=$(wc -m < "$file" | tr -d ' ')
+lines=$(wc -l <"$file" | tr -d ' ')
+words=$(wc -w <"$file" | tr -d ' ')
+chars=$(wc -m <"$file" | tr -d ' ')
 
 echo "Lines: $lines"
 echo "Words: $words"

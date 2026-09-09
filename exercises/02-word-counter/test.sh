@@ -7,7 +7,7 @@ fail=0
 tmp=$(mktemp)
 trap 'rm -f "$tmp"' EXIT
 
-printf 'hello world\nsecond line\n' > "$tmp"
+printf 'hello world\nsecond line\n' >"$tmp"
 actual=$(./solution.sh "$tmp")
 expected=$'Lines: 2\nWords: 4\nChars: 24'
 
