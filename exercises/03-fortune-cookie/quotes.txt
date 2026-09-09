@@ -1,0 +1,5 @@
+Small habits, repeated daily, beat big plans that never start.
+The shell rewards precision; it punishes assumptions.
+Read the error message. It usually says exactly what is wrong.
+Automate the boring part so you can think about the interesting part.
+A script that fails loudly is a gift to your future self.
